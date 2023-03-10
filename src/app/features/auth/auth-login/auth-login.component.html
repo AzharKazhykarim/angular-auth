@@ -1,55 +1,57 @@
-<form
-  class="flex flex-col gap-y-6 items-center sm:items-stretch dark:bg-slate-900"
-  [formGroup]="loginForm"
->
-  <h1 class="text-3xl mb-4 font-bold w-max dark:text-white">
-    Sign in to platform
-  </h1>
-  <app-auth-control
-    formControlName="emailOrPhoneNumber"
-    inputType="email"
-    [isError]="
-      loginForm.get('emailOrPhoneNumber')?.touched &&
-      loginForm.get('emailOrPhoneNumber')?.invalid
-    "
-    labelMsg="Mobile Number or Email"
-    placeholderMsg="name@company.com"
-    errorMsg="Please enter a valid email address or phone number."
-  ></app-auth-control>
-  <app-auth-control
-    formControlName="password"
-    inputType="password"
-    [isError]="
-      loginForm.get('password')?.touched && loginForm.get('password')?.invalid
-    "
-    labelMsg="Your password"
-    placeholderMsg="Password"
-    errorMsg="Please enter a password that is at least 8 characters and no more than 32 characters."
-  ></app-auth-control>
-
-  <div
-    class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center sm:justify-items-start"
+<div class="h-full flex items-center justify-center">
+  <form
+    class="form-base"
+    [formGroup]="loginForm"
   >
-    <div class="flex items-center">
-      <input
-        id="default-checkbox"
-        type="checkbox"
-        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:border-blue-500 outline-blue-500 dark:bg-gray-700 dark:border-gray-600"
-      />
-      <label
-        for="default-checkbox"
-        class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300 font-poppins"
-        >Remember me</label
-      >
-    </div>
-    <a
-      class="cursor-pointer sm:justify-self-end text-blue-500 text-sm hover:text-blue-600 order-1 sm:order-none"
-    >
-      Forgot Password?
-    </a>
+    <h1 class="text-3xl mb-4 font-bold w-max dark:text-white">
+      Sign in to platform
+    </h1>
+    <app-auth-control
+      formControlName="emailOrPhoneNumber"
+      inputType="email"
+      [isError]="
+        loginForm.get('emailOrPhoneNumber')?.touched &&
+        loginForm.get('emailOrPhoneNumber')?.invalid
+      "
+      labelMsg="Mobile Number or Email"
+      placeholderMsg="name@company.com"
+      errorMsg="Please enter a valid email address or phone number."
+    ></app-auth-control>
+    <app-auth-control
+      formControlName="password"
+      inputType="password"
+      [isError]="
+        loginForm.get('password')?.touched && loginForm.get('password')?.invalid
+      "
+      labelMsg="Your password"
+      placeholderMsg="Password"
+      errorMsg="Please enter a password that is at least 8 characters and no more than 32 characters."
+    ></app-auth-control>
 
-    <app-blue-button [isSubmit]="true" [valid]="loginForm.valid">
-      Login to your account
-    </app-blue-button>
-  </div>
-</form>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center sm:justify-items-start"
+    >
+      <div class="flex items-center">
+        <input
+          id="default-checkbox"
+          type="checkbox"
+          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:border-blue-500 outline-blue-500 dark:bg-gray-700 dark:border-gray-600"
+        />
+        <label
+          for="default-checkbox"
+          class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300 font-poppins"
+          >Remember me</label
+        >
+      </div>
+      <a
+        class="cursor-pointer sm:justify-self-end text-blue-500 text-sm hover:text-blue-600 order-1 sm:order-none"
+      >
+        Forgot Password?
+      </a>
+
+      <app-blue-button [isSubmit]="true" [valid]="loginForm.valid">
+        Login to your account
+      </app-blue-button>
+    </div>
+  </form>
+</div>

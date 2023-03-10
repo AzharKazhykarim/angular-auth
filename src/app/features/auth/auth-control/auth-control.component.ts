@@ -27,8 +27,8 @@ export class AuthControlComponent implements ControlValueAccessor {
   private onTouched!: () => void;
 
   constructor(
-    // private readonly changeDetector: ChangeDetectorRef 
-  ) {} 
+    // private readonly changeDetector: ChangeDetectorRef
+  ) {}
 
   onBlur() {
     this.onTouched();

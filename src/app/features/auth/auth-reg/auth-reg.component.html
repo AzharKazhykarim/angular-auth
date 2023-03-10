@@ -1,36 +1,40 @@
-<form
-  class="flex flex-col gap-y-4 items-center sm:items-stretch dark:bg-slate-900"
-  [formGroup]="registerForm"
->
-  <h1 class="text-3xl mb-6 font-bold w-max dark:text-white">
-    Create your account
-  </h1>
-  <app-auth-control
-    formControlName="emailOrPhoneNumber"
-    inputType="email"
-    [isError]="
-      registerForm.get('emailOrPhoneNumber')?.touched &&
-      registerForm.get('emailOrPhoneNumber')?.invalid
-    "
-    labelMsg="Mobile Number or Email"
-    placeholderMsg="name@company.com"
-    errorMsg="Please enter a valid email address or phone number."
-  ></app-auth-control>
-  <app-auth-control
-    formControlName="password"
-    inputType="password"
-    [isError]="
-      registerForm.get('password')?.touched &&
-      registerForm.get('password')?.invalid
-    "
-    labelMsg="Your password"
-    placeholderMsg="Password"
-    errorMsg="Please enter a password that is at least 8 characters and no more than 32 characters."
-  ></app-auth-control>
-
-  <app-blue-button [isSubmit]="true" [valid]="registerForm.valid">
-    Create new account
-  </app-blue-button>
-
-  <!-- {{ registerForm.value | json }} -->
-</form>
+<div class="h-full flex items-center justify-center">
+  <form
+    class="form-base"
+    [formGroup]="registerForm"
+  >
+    <h1 class="text-3xl mb-4 font-bold w-max dark:text-white">
+      Create your account
+    </h1>
+    <app-auth-control
+      formControlName="emailOrPhoneNumber"
+      inputType="email"
+      [isError]="
+        registerForm.get('emailOrPhoneNumber')?.touched &&
+        registerForm.get('emailOrPhoneNumber')?.invalid
+      "
+      labelMsg="Mobile Number or Email"
+      placeholderMsg="name@company.com"
+      errorMsg="Please enter a valid email address or phone number."
+    ></app-auth-control>
+    <app-auth-control
+      formControlName="password"
+      inputType="password"
+      [isError]="
+        registerForm.get('password')?.touched &&
+        registerForm.get('password')?.invalid
+      "
+      labelMsg="Your password"
+      placeholderMsg="Password"
+      errorMsg="Please enter a password that is at least 8 characters and no more than 32 characters."
+    ></app-auth-control>
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center sm:justify-items-start"
+    >
+      <app-blue-button [isSubmit]="true" [valid]="registerForm.valid">
+        Create new account
+      </app-blue-button>
+    </div>
+    <!-- {{ registerForm.value | json }} -->
+  </form>
+</div>
