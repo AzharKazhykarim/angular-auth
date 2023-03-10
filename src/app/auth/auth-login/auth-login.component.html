@@ -1,0 +1,58 @@
+<form
+  class="flex flex-col gap-y-6 items-center sm:items-stretch dark:bg-slate-900"
+  [formGroup]="loginForm"
+>
+  <h1 class="text-3xl mb-4 font-bold w-max dark:text-white">
+    Sign in to platform
+  </h1>
+  <app-auth-control
+    formControlName="emailOrPhoneNumber"
+    inputType="email"
+    [isError]="
+      loginForm.get('emailOrPhoneNumber')?.touched &&
+      loginForm.get('emailOrPhoneNumber')?.invalid
+    "
+    labelMsg="Mobile Number or Email"
+    placeholderMsg="name@company.com"
+    errorMsg="Please enter a valid email address or phone number."
+  ></app-auth-control>
+  <app-auth-control
+    formControlName="password"
+    inputType="password"
+    [isError]="
+      loginForm.get('password')?.touched && loginForm.get('password')?.invalid
+    "
+    labelMsg="Your password"
+    placeholderMsg="Password"
+    errorMsg="Please enter a password that is at least 8 characters and no more than 32 characters."
+  ></app-auth-control>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center sm:justify-items-start"
+  >
+    <div class="flex items-center">
+      <input
+        id="default-checkbox"
+        type="checkbox"
+        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:border-blue-500 outline-blue-500 dark:bg-gray-700 dark:border-gray-600"
+      />
+      <label
+        for="default-checkbox"
+        class="ml-2 text-sm font-medium text-gray-700 dark:text-gray-300 font-poppins"
+        >Remember me</label
+      >
+    </div>
+    <a
+      class="cursor-pointer sm:justify-self-end text-blue-500 text-sm hover:text-blue-600 order-1 sm:order-none"
+    >
+      Forgot Password?
+    </a>
+    <button
+      type="submit"
+      [disabled]="loginForm.invalid"
+      class="w-fit mt-2 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-blue-300 dark:disabled:bg-blue-300 transition-colors"
+    >
+      Login to your account
+    </button>
+  </div>
+</form>

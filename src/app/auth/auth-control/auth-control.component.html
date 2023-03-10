@@ -1,0 +1,29 @@
+<label
+  for="error"
+  class="block mb-2 text-sm font-poppins"
+  [ngClass]="
+    isError ? 'text-red-600 dark:text-red-400' : 'text-gray-900 dark:text-white'
+  "
+>
+  {{ labelMsg }}
+</label>
+<input
+  [type]="inputType"
+  id="error"
+  class="text-sm outline-none shadow-sm border rounded-lg focus:ring-2 block w-full p-2.5"
+  [placeholder]="placeholderMsg"
+  [value]="value"
+  (input)="onInputValueChange($event)"
+  [ngClass]="
+    isError
+      ? 'bg-red-50 border-red-500 text-red-900 placeholder-red-700 text-sm rounded-lg focus:ring-red-500/20 dark:bg-gray-700  focus:border-red-500  dark:text-red-500 dark:placeholder-red-500 dark:border-red-500 dark:focus:ring-red-500/20 dark:focus:border-red-500'
+      : 'bg-gray-50 border-gray-300 text-gray-900 focus:ring-blue-500/20 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:placeholder-gray-400 dark:focus:ring-blue-500/20 dark:focus:border-blue-500'
+  "
+  (blur)="onBlur()"
+/>
+<p
+  class="mt-2 text-sm text-red-600 dark:text-red-500 w-64 sm:w-96"
+  [class.hidden]="!isError"
+>
+  {{ errorMsg }}
+</p>

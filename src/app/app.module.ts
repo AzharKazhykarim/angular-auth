@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { BlueButtonComponent } from './shared/components/blue-button/blue-button.component';
 import { CoreModule } from './core/core.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, BlueButtonComponent],
@@ -19,6 +20,7 @@ import { CoreModule } from './core/core.module';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     CoreModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
