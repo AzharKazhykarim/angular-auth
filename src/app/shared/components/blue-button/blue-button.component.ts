@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./blue-button.component.scss'],
 })
 export class BlueButtonComponent {
-  @Input() content!: string;
   @Input() valid = true;
+  @Input() isSubmit = false;
 }

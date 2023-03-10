@@ -4,7 +4,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'app-auth-control',
   templateUrl: './auth-control.component.html',
-  styleUrls: ['./auth-control.component.css'],
+  styleUrls: ['./auth-control.component.scss'],
   // changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {

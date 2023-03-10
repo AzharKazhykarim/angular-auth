@@ -4,7 +4,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-auth-reg',
   templateUrl: './auth-reg.component.html',
-  styleUrls: ['./auth-reg.component.css'],
+  styleUrls: ['./auth-reg.component.scss'],
 })
 export class AuthRegComponent {
   registerForm = new FormGroup({

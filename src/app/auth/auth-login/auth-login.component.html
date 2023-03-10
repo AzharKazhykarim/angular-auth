@@ -47,12 +47,9 @@
     >
       Forgot Password?
     </a>
-    <button
-      type="submit"
-      [disabled]="loginForm.invalid"
-      class="w-fit mt-2 text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-semibold rounded-lg px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 disabled:bg-blue-300 dark:disabled:bg-blue-300 transition-colors"
-    >
+
+    <app-blue-button [isSubmit]="true" [valid]="loginForm.valid">
       Login to your account
-    </button>
+    </app-blue-button>
   </div>
 </form>
