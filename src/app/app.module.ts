@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { CoreModule } from './core/core.module';
-import { AuthModule } from './auth/auth.module';
+import { AuthModule } from './features/auth/auth.module';
 import { SharedModule } from './shared/shared.module';
 
 @NgModule({
