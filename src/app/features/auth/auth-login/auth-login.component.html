@@ -1,9 +1,6 @@
 <div class="h-full flex items-center justify-center">
-  <form
-    class="form-base"
-    [formGroup]="loginForm"
-  >
-    <h1 class="text-3xl mb-4 font-bold w-max dark:text-white">
+  <form class="form-base" [formGroup]="loginForm">
+    <h1 class="text-3xl my-4 font-bold w-max dark:text-white">
       Sign in to platform
     </h1>
     <app-auth-control
@@ -44,7 +41,7 @@
         >
       </div>
       <a
-        class="cursor-pointer sm:justify-self-end text-blue-500 text-sm hover:text-blue-600 order-1 sm:order-none"
+        class=" sm:justify-self-end  text-sm  order-1 sm:order-none"
       >
         Forgot Password?
       </a>
@@ -52,6 +49,18 @@
       <app-blue-button [isSubmit]="true" [valid]="loginForm.valid">
         Login to your account
       </app-blue-button>
+
+      <p
+        class="col-span-1 sm:col-span-2 text-sm text-gray-900 dark:text-white mt-4 order-2 sm:order-none"
+      >
+        Don't have an account?
+        <a
+          routerLink="/signup"
+          class="cursor-pointer text-blue-500 hover:text-blue-600"
+        >
+          Sign up
+        </a>
+      </p>
     </div>
   </form>
 </div>

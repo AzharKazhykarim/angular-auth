@@ -15,7 +15,7 @@
 
 //form
 .form-base {
-  @apply flex flex-col gap-y-6 items-center sm:items-stretch dark:bg-slate-900 shadow-md p-6 rounded-md;
+  @apply flex flex-col gap-y-6 items-center sm:items-stretch ring-1 ring-slate-900/5 dark:bg-slate-800 shadow-lg p-6 rounded-lg min-w-[480px];
 }
 
 .input-base-red {
