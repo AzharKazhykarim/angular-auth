@@ -1,5 +1,5 @@
 <div class="h-full flex items-center justify-center">
-  <form class="form-base" [formGroup]="registerForm">
+  <form class="form-base" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
     <h1 class="text-3xl my-4 font-bold w-max dark:text-white">
       Create your account
     </h1>
@@ -29,7 +29,8 @@
       class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 justify-items-center sm:justify-items-start"
     >
       <app-blue-button [isSubmit]="true" [valid]="registerForm.valid">
-        Create new account
+        <app-loading-spinner *ngIf="isLoading">Loading...</app-loading-spinner>
+        <span *ngIf="!isLoading">Create new account</span>
       </app-blue-button>
     </div>
     <p

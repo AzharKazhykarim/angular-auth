@@ -1,5 +1,5 @@
 <div class="h-full flex items-center justify-center">
-  <form class="form-base" [formGroup]="loginForm">
+  <form class="form-base" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <h1 class="text-3xl my-4 font-bold w-max dark:text-white">
       Sign in to platform
     </h1>
@@ -30,6 +30,7 @@
     >
       <div class="flex items-center">
         <input
+          formControlName="remember"
           id="default-checkbox"
           type="checkbox"
           class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:border-blue-500 outline-blue-500 dark:bg-gray-700 dark:border-gray-600"
@@ -40,14 +41,13 @@
           >Remember me</label
         >
       </div>
-      <a
-        class=" sm:justify-self-end  text-sm  order-1 sm:order-none"
-      >
+      <a class="sm:justify-self-end text-sm order-1 sm:order-none">
         Forgot Password?
       </a>
 
       <app-blue-button [isSubmit]="true" [valid]="loginForm.valid">
-        Login to your account
+        <app-loading-spinner *ngIf="isLoading">Loading...</app-loading-spinner>
+        <span *ngIf="!isLoading">Login to your account</span>
       </app-blue-button>
 
       <p
@@ -58,6 +58,7 @@
           routerLink="/signup"
           class="cursor-pointer text-blue-500 hover:text-blue-600"
         >
+        
           Sign up
         </a>
       </p>
