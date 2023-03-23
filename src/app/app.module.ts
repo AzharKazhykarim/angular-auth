@@ -1,3 +1,4 @@
+import { HomeModule } from './features/home/home.module';
 import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,8 +21,9 @@ import { SharedModule } from './shared/shared.module';
       registrationStrategy: 'registerWhenStable:30000',
     }),
     CoreModule,
-    AuthModule,
     SharedModule,
+    AuthModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],

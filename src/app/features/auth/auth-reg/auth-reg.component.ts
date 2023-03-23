@@ -34,12 +34,12 @@ export class AuthRegComponent {
     this.isLoading = true;
     this.authService.signup(emailOrPhoneNumber, password).subscribe({
       next: (res: any) => {
-        // this.isLoading = false;
+        this.isLoading = false;
         console.log(res);
       },
       error: (err: any) => {
-        // this.isLoading = false;
-        console.log(err)
+        this.isLoading = false;
+        console.log(err);
       },
     });
     this.registerForm.reset();

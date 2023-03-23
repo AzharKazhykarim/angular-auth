@@ -1,7 +1,8 @@
 export class User {
   constructor(
-    public email: string,
-    public id: string,
+    public emailOrNumber: string,
+    public _id: string,
+    public _roles:string,
     private _token: string,
     private _tokenExprirationDate: Date
   ) {}
@@ -15,3 +16,12 @@ export class User {
     return this._token;
   }
 }
+
+// type of response User
+// completed: boolean,
+// createdAt: string ,
+// emailOrPhoneNumber: string, 
+// password: string,
+// roles: "user",
+// unhashedPassword: string,
+// _id: string,

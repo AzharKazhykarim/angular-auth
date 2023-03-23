@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
-  CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -12,12 +12,26 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
+  canActivate():
+    | Observable<boolean | UrlTree>
+    | Promise<boolean | UrlTree>
+    | boolean
+    | UrlTree {
+    if (!this.authService.isAuthenticated()) {
+      alert('You are not authenticated!');
+      this.router.navigate(['/auth']);
+      return false;
+    }
+
+    this.authService.isAuthenticated();
+    return true;
+  }
 
   // canActivate(
   //   route: ActivatedRouteSnapshot,
   //   state: RouterStateSnapshot,
-    
+
   // ):
   //   | boolean
   //   | UrlTree

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from 'src/app/core/services/auth.service';
   styleUrls: ['./auth-login.component.scss'],
 })
 export class AuthLoginComponent {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   isLoading = false;
 
@@ -34,12 +35,14 @@ export class AuthLoginComponent {
     this.isLoading = true;
     this.authService.login(emailOrPhoneNumber, password).subscribe({
       next: (res: any) => {
-        // this.isLoading = false;
-        console.log(res);
+        console.log(res)
+        this.isLoading = false;
+        this.authService.onSaveToken(res.token);
+        this.router.navigate(['/home']);
       },
       error: (err: any) => {
-        // this.isLoading = false;
-        console.log(err)
+        this.isLoading = false;
+        console.log(err);
       },
     });
     this.loginForm.reset();
