@@ -25,7 +25,6 @@ export class AuthLoginComponent {
   });
 
   onSubmit() {
-    console.log(this.loginForm.value);
     this.isLoading = true;
     if (this.loginForm.invalid) {
       return;
